@@ -9,7 +9,7 @@ app.post("/add-expense", async (request, response) => {
     await Expense.create({
       amount: request.body.amount,
       date: request.body.date,
-      category: request.body.category,
+      title: request.body.title,
     });
     response.status(201).json({
       status: "success",
@@ -62,7 +62,7 @@ app.patch("/update-expense/:id", async function (request, response) {
     if (expenseEntry) {
       await expenseEntry.updateOne({
         amount: request.body.amount,
-        category: request.body.category,
+        title: request.body.title,
         date: request.body.date,
       });
       response.status(200).json({
@@ -91,7 +91,7 @@ async function connectToDb() {
     );
     console.log("DB connection established");
 
-    const port = process.env.port;
+    const port = process.env.port || 8000;
 
     app.listen(port, function () {
       console.log(`Listening on port ${port}`);

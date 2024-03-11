@@ -3,7 +3,7 @@ const expenseTrackerSchema = new mongoose.Schema({
   amount: {
     type: Number,
   },
-  category: {
+  title: {
     type: String,
   },
   date: {
@@ -13,4 +13,4 @@ const expenseTrackerSchema = new mongoose.Schema({
 
 const Expense = mongoose.model("expensedetails", expenseTrackerSchema);
 
-module.exports = { Expense }; 
+module.exports = { Expense };
